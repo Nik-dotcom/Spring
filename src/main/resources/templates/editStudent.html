@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h2>Новый студент</h2>
+    <form th:action="@{/students/newStudent" method="post" th:object="${student}" class="needs-validation">
+        <div class="form-group">
+            <label for="name">
+                Name:
+            </label>
+            <input type="text" th:field="*{name}" class="form-control" id="name" required>
+            <div class="invalid-feedback"></div>
+        </div>
+        <div class="from-group">
+            <label for="email">
+              email
+            </label>
+            <input type="email" field="*{email}" class="form-control" id="email" required>
+            <div th:if="${emailExists}" class="text-danger"></div>
+            <div class="invalid-feedback">Введите корректный адрес электронной почты</div>
+        </div>
+        <div class="form-group">
+            <label for="name">Age:</label>
+            <input type="text" th:field="*{age}" class="form-control" id="age">
+            <div class="invalid-feedback">Возраст</div>
+        </div>
+        <button type="submit" class="btn btn-primary"></button>
+    </form>
+</div>
+
+</body>
+</html>
